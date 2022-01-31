@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model students {
+  id          Int    @id @default(autoincrement())
+  user_id     Int
+  faculty     String @db.VarChar
+  batch       Int    @db.Integer
+  resume_data Json?
+  user        users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "foreignKey")
+
+  @@index([user_id], map: "fki_foreignKey")
+}
+
+model users {
+  username String     @unique @db.VarChar
+  password String     @db.VarChar
+  role     String     @db.VarChar
+  id       Int        @id @default(autoincrement())
+  students students[]
+}

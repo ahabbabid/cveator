@@ -1,0 +1,6 @@
+{
+    "provider": "localhost:5432",
+   "username": "postres",
+   "password": "root",
+   "database":"cveator" 
+} 

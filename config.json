@@ -1,0 +1,19 @@
+{
+    "currentBatches": {
+         "28": "Final Year",
+        "29": "Junior Year"
+    },
+    "faculties": [
+        "CSE",
+        "CVE",
+        "FME",
+        "EEE",
+        "EEP"
+
+    ],
+    "disciplines": [
+        "Computer Science",
+        "Computer Engineering"
+    ]
+  
+}
