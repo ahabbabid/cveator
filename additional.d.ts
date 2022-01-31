@@ -56,3 +56,4 @@ interface FormValues {
 type Metrics = 'CGPA' | 'Grades' | 'Result'
 declare module 'html2pdf.js'
 declare module 'react-dom/server'
+declare module 'file-saver'
