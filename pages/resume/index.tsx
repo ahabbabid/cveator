@@ -81,7 +81,9 @@ const Home: NextPage<{
           className="cursor-pointer text-sm text-sky-100 underline"
           onClick={async (e) => {
             e.preventDefault()
-            await fetch('/api/logout')
+            await fetch('/api/logout', {
+              method: 'post',
+            })
             router.replace('/')
           }}
         >
