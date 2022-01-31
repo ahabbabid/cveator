@@ -82,7 +82,8 @@ const Home: NextPage<{
           onClick={async (e) => {
             e.preventDefault()
             await fetch('/api/logout', {
-              method: 'post',
+              method: 'POST',
+              credentials: 'include',
             })
 
             router.replace('/')

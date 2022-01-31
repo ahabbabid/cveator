@@ -39,6 +39,7 @@ const LoginPage: NextPage = () => {
               const res = await fetch('/api/login', {
                 method: 'POST',
                 body: JSON.stringify(values),
+                credentials: 'include',
               })
               if (res.status === 200) {
                 router.push('/resume')
