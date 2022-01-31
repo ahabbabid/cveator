@@ -84,6 +84,7 @@ const Home: NextPage<{
             await fetch('/api/logout', {
               method: 'post',
             })
+
             router.replace('/')
           }}
         >

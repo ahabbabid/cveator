@@ -21,8 +21,11 @@ async function loginRoute(req: NextApiRequest, res: NextApiResponse) {
     req.session.user = user
 
     await req.session.save()
-    res.status(200).send({
-      ok: true,
-    })
+    // res.status(200).send({
+    //   ok: true,
+    // })
+
+    res.setHeader('cache-control', 'no-store, max-age=0')
+    res.redirect('/resume')
   }
 }

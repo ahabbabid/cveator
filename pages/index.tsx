@@ -37,7 +37,7 @@ const LoginPage: NextPage = () => {
           onSubmit={async (values, actions) => {
             try {
               const res = await fetch('/api/login', {
-                method: 'post',
+                method: 'POST',
                 body: JSON.stringify(values),
               })
               if (res.status === 200) {
