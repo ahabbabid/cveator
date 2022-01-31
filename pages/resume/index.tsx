@@ -432,7 +432,7 @@ const Home: NextPage<{
                                     defaultVals.education.startDate
                                   }
                                 />
-                                ,{' '}
+                                -{' '}
                                 <ToggleableInput
                                   classes={{
                                     input: 'text-sm ',
@@ -546,7 +546,7 @@ const Home: NextPage<{
                                     defaultVals.work.startDate
                                   }
                                 />
-                                ,{' '}
+                                -{' '}
                                 <ToggleableInput
                                   classes={{
                                     input: 'text-sm ',
