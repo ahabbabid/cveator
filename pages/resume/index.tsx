@@ -27,6 +27,7 @@ export const getServerSideProps = withSessionSsr(
   //@ts-ignore
   async function getServerSideProps({ req }) {
     const { disciplines, currentBatches } = config
+    console.log(req.session.user)
     if (!req.session.user)
       return {
         redirect: {
