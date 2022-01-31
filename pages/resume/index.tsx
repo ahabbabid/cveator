@@ -24,6 +24,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 
 export const getServerSideProps = withSessionSsr(
+  //@ts-ignore
   async function getServerSideProps({ req }) {
     const { disciplines, currentBatches } = config
     if (!req.session.user)
@@ -40,9 +41,6 @@ export const getServerSideProps = withSessionSsr(
           user_id: user.id,
         },
       })
-      if (resumeData) {
-        const batch: string = resumeData.batch.toString()
-      }
 
       return {
         props: {
