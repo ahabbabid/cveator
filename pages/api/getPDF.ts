@@ -34,7 +34,7 @@ async function getPDF(req: NextApiRequest, res: NextApiResponse) {
       args: [
         '--no-sandbox',
         '—disable-setuid-sandbox',
-        '--font-render-hinting=medium',
+        '--font-render-hinting=none',
       ],
     })
     const page = await browser.newPage()
