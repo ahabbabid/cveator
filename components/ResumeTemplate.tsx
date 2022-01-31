@@ -1,8 +1,17 @@
 import { ReactElement } from 'react'
+import Head from 'next/head'
 import { educationDefaultVals } from '../lib/constants/resume'
 const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
   return (
     <div className="p-5">
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <div className="flex  justify-between ">
         <div>
           <span className="text-2xl font-bold">
