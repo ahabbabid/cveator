@@ -31,7 +31,7 @@ async function getPDF(req: NextApiRequest, res: NextApiResponse) {
 
     const browser = await puppeteer.launch({
       headless: true,
-      args: ['—no-sandbox', '—disable-setuid-sandbox'],
+      args: ['--no-sandbox', '—disable-setuid-sandbox'],
     })
     const page = await browser.newPage()
     await page.setContent(html)
