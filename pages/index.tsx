@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
 interface LoginFormErrorType {
   regNo?: string
@@ -54,6 +55,9 @@ const LoginPage: NextPage = () => {
         >
           {({ values, handleSubmit, isSubmitting }) => (
             <form className="w-3/4" onSubmit={handleSubmit}>
+              <div className="text-center text-2xl font-bold text-sky-900">
+                CVeator(Beta)
+              </div>
               <div className="mb-5 ">
                 {loginError && (
                   <div className="rounded-md border-gray-700 bg-white p-2 text-center text-red-800">
@@ -69,6 +73,7 @@ const LoginPage: NextPage = () => {
                   {({ field, meta }: FieldProps) => (
                     <div className="w-3/4">
                       <input
+                        placeholder="Registration Number"
                         {...field}
                         type="text"
                         className={classNames(
@@ -92,12 +97,12 @@ const LoginPage: NextPage = () => {
                 <div className="mr-3  w-1/4 text-right font-semibold text-sky-900">
                   <label>Password</label>
                 </div>
-                <Field type="password" placeholder="Password" name="password">
+                <Field placeholder="Password" name="password">
                   {({ field, meta }: FieldProps) => (
                     <div className="w-3/4">
                       <input
                         {...field}
-                        type="text"
+                        type="password"
                         placeholder="Password"
                         className={classNames(
                           'w-full rounded-md border-2 border-sky-900 p-2 focus:outline-none',
@@ -126,6 +131,13 @@ const LoginPage: NextPage = () => {
                     'Sign Up'
                   )}
                 </button>
+              </div>
+              <div className="mt-5 text-center text-sm text-sky-900">
+                Haven't registered?{' '}
+                <Link href={'/signup'}>
+                  <a className="underline">Click here</a>
+                </Link>{' '}
+                to sign up
               </div>
             </form>
           )}

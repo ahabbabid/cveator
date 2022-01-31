@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import Head from 'next/head'
-import { educationDefaultVals } from '../lib/constants/resume'
+import classNames from 'classnames'
 const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
   return (
     <div className="p-5">
@@ -126,7 +126,47 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             </div>
           ))}
         </div>
-        <div className="col-span-2 row-span-1 row-start-4 border-r-2 border-solid pr-2">
+        {resumeData.fyp && (
+          <>
+            <div
+              className={classNames(
+                'col-span-2 row-span-1 row-start-4 border-r-2 border-solid pr-2'
+              )}
+            >
+              <div className="flex justify-end">
+                <div className="w-3/4 text-right font-semibold">
+                  {' '}
+                  Final Year Project
+                </div>
+              </div>
+            </div>
+            <div
+              className={classNames(
+                'col-span-10 col-start-3 row-span-1 border-solid pr-2',
+                {
+                  'row-start-3': !resumeData.fyp,
+                  'row-start-4': resumeData.fyp,
+                }
+              )}
+            >
+              <div>
+                <p className="text-base font-semibold">{resumeData.fyp.name}</p>
+
+                <p className=" text-sm">&emsp;{resumeData.fyp.desc}</p>
+              </div>
+            </div>
+          </>
+        )}
+
+        <div
+          className={classNames(
+            'col-span-2 row-span-1  border-r-2 border-solid pr-2',
+            {
+              'row-start-4': !resumeData.fyp,
+              'row-start-5': resumeData.fyp,
+            }
+          )}
+        >
           <div className="flex justify-end">
             <div className="w-3/4 text-right font-semibold">
               {' '}
@@ -134,7 +174,12 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             </div>
           </div>
         </div>
-        <div className="col-span-10  col-start-3 row-span-1 row-start-4">
+        <div
+          className={classNames('col-span-10 row-span-1   border-solid pr-2', {
+            'row-start-4': !resumeData.fyp,
+            'row-start-5': resumeData.fyp,
+          })}
+        >
           {resumeData.academicProjects.map((obj) => (
             <div>
               <p className="text-base font-semibold">{obj.name}</p>
@@ -143,7 +188,15 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             </div>
           ))}
         </div>
-        <div className=" col-span-2 row-span-1 row-start-5 border-r-2 border-solid pr-2">
+        <div
+          className={classNames(
+            'col-span-2 row-span-1  border-r-2 border-solid pr-2',
+            {
+              'row-start-5': !resumeData.fyp,
+              'row-start-6': resumeData.fyp,
+            }
+          )}
+        >
           <div className="flex justify-end">
             <div className="w-3/4 text-right font-semibold">
               {' '}
@@ -151,19 +204,37 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             </div>
           </div>
         </div>
-        <div className="col-span-10  col-start-3 row-span-1 row-start-5">
+        <div
+          className={classNames('col-span-10 row-span-1 border-solid pr-2', {
+            'row-start-5': !resumeData.fyp,
+            'row-start-6': resumeData.fyp,
+          })}
+        >
           {resumeData.awardsAndAcheivments.map((award) => (
             <div>
               <p className="text-semibold text-base"> - {award}</p>
             </div>
           ))}
         </div>
-        <div className="col-span-2 row-span-1 row-start-6 border-r-2 border-solid">
+        <div
+          className={classNames(
+            'col-span-2 row-span-1  border-r-2 border-solid pr-2',
+            {
+              'row-start-6': !resumeData.fyp,
+              'row-start-7': resumeData.fyp,
+            }
+          )}
+        >
           <div className="flex justify-end">
             <div className="pr-2 text-right font-semibold">Skills</div>
           </div>
         </div>
-        <div className="col-span-10  col-start-3 row-span-1 row-start-6">
+        <div
+          className={classNames('col-span-10  col-start-3 row-span-1', {
+            'row-start-6': !resumeData.fyp,
+            'row-start-7': resumeData.fyp,
+          })}
+        >
           {resumeData.skills.map((skill) => (
             <div>
               <p className="text-semibold text-base"> - {skill}</p>

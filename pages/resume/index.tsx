@@ -82,7 +82,7 @@ const Home: NextPage<{
           onClick={async (e) => {
             e.preventDefault()
             await fetch('/api/logout')
-            router.replace('/login')
+            router.replace('/')
           }}
         >
           logout
@@ -238,7 +238,7 @@ const Home: NextPage<{
                   <div className="flex justify-between">
                     <FontAwesomeIcon
                       icon={faPlusCircle}
-                      className="ml-2 mt-1 opacity-50 hover:cursor-pointer hover:opacity-100  "
+                      className="ml-2 mt-1 hover:cursor-pointer "
                       onClick={() =>
                         setFieldValue('education.other', [
                           ...values.education.other,

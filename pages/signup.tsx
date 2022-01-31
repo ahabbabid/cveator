@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Link from 'next/link'
 import { Formik, Field, FieldProps } from 'formik'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
@@ -58,7 +59,7 @@ const SignUpPage: NextPage<{
                 body: JSON.stringify(values),
               })
               if (res.status === 200) {
-                router.push('/')
+                router.push('/resume')
               } else if (res.status === 401) {
                 const body = await res.json()
                 if (body.error) {
@@ -72,7 +73,10 @@ const SignUpPage: NextPage<{
         >
           {({ handleSubmit, isSubmitting }) => (
             <form className="w-3/4" onSubmit={handleSubmit}>
-              <div className="mb-5 flex ">
+              <div className="text-center text-2xl font-bold text-sky-900">
+                CVeator(Beta)
+              </div>
+              <div className="mb-5 mt-5 flex">
                 <div className="mr-3 flex w-1/4 text-right font-semibold text-sky-900">
                   <label>Registration Number </label>
                 </div>
@@ -81,6 +85,7 @@ const SignUpPage: NextPage<{
                     <div className="w-3/4">
                       <input
                         {...field}
+                        placeholder="Registration Number "
                         type="number"
                         className={classNames(
                           'w-full rounded-md border-2 border-sky-800 p-2 focus:outline-none',
@@ -193,6 +198,13 @@ const SignUpPage: NextPage<{
                     'Sign Up'
                   )}
                 </button>
+              </div>
+              <div className="mt-5 text-center text-sm text-sky-900">
+                Already registered?{' '}
+                <Link href={'/'}>
+                  <a className="underline">Click here</a>
+                </Link>{' '}
+                to login
               </div>
             </form>
           )}
