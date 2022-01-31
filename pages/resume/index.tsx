@@ -30,7 +30,7 @@ export const getServerSideProps = withSessionSsr(
     if (!req.session.user)
       return {
         redirect: {
-          destination: '/login',
+          destination: '/',
         },
         props: {},
       }

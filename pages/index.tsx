@@ -40,7 +40,7 @@ const LoginPage: NextPage = () => {
                 body: JSON.stringify(values),
               })
               if (res.status === 200) {
-                router.push('/')
+                router.push('/resume')
               } else if (res.status === 400) {
                 const body = await res.json()
                 if (body.error) {
