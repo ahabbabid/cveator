@@ -842,7 +842,7 @@ const Home: NextPage<{
                       }
                     )}
                   >
-                    <FieldArray name="awardsAndAcheivments">
+                    <FieldArray name="awardsAndAchievements">
                       {(arrayHelpers) => (
                         <div>
                           {values.awardsAndAchievements &&
@@ -856,7 +856,7 @@ const Home: NextPage<{
                                         input: 'mr-2 text-sm  w-3/4',
                                         span: ' cursor-edit',
                                       }}
-                                      name={`awardsAndAcheivments[${index}]`}
+                                      name={`awardsAndAchievements[${index}]`}
                                       value={
                                         values.awardsAndAchievements[index]
                                       }
