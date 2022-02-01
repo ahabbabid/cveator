@@ -129,7 +129,7 @@ const LoginPage: NextPage = () => {
                   {isSubmitting ? (
                     <FontAwesomeIcon icon={faCircleNotch} spin />
                   ) : (
-                    'Sign Up'
+                    'Login'
                   )}
                 </button>
               </div>
