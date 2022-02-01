@@ -41,10 +41,10 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
         </div>
       </div>
       <div className="grid grid-cols-12 gap-x-2 gap-y-3 border-t-2 border-solid border-black">
-        <div className="col-span-2 row-span-1 border-r-2 border-solid pr-2 text-right">
+        <div className="col-span-2 row-span-1 mt-2 border-r-2 border-solid pr-2 text-right">
           <div className="font-semibold">Objective</div>
         </div>
-        <div className="col-span-10  col-start-3 row-span-1 row-start-1">
+        <div className="col-span-10  col-start-3 row-span-1 row-start-1 mt-2">
           <p className="text-sm">{resumeData.objective}</p>
         </div>
         <div className="col-span-2 col-start-1 row-span-1 border-r-2 border-solid pr-2">
@@ -210,7 +210,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             'row-start-6': resumeData.fyp,
           })}
         >
-          {resumeData.awardsAndAcheivments.map((award) => (
+          {resumeData.awardsAndAchievements.map((award) => (
             <div>
               <p className="text-semibold text-base"> - {award}</p>
             </div>

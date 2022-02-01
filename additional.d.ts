@@ -50,7 +50,7 @@ interface FormValues {
   work: Array<WorkExperienceVals>
   fyp?: AcademicProjectsVals
   academicProjects: Array<AcademicProjectsVals>
-  awardsAndAcheivments: Array<string>
+  awardsAndAchievements: Array<string>
   skills: Array<string>
 }
 type Metrics = 'CGPA' | 'Grades' | 'Result'

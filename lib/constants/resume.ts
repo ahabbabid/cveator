@@ -23,7 +23,7 @@ const workExperienceDefaultVals: WorkExperienceVals = {
   location: 'City, Country',
 }
 const skillDefaultVal: string = 'Skill'
-const awardsAndAcheivmentsDefaultVal: string = 'Award/Acheivment'
+const awardsAndAchievementsDefaultVal: string = 'Award/Acheivment'
 const addressDefaultVals = {
   houseAddress: '52nd Street',
   city: 'Lahore',
@@ -59,13 +59,13 @@ const initialResumeData = (finalYear: boolean): FormValues => ({
   work: [workExperienceDefaultVals],
   fyp: finalYear ? FypDefaultVals : undefined,
   academicProjects: [academicProjectsDefaultVals],
-  awardsAndAcheivments: [awardsAndAcheivmentsDefaultVal],
+  awardsAndAchievements: [awardsAndAchievementsDefaultVal],
   skills: [skillDefaultVal],
 })
 const defaultVals = {
   personalInfo: personalInfoDefaultVal,
   education: educationDefaultVals,
-  awardsAndAcheivments: awardsAndAcheivmentsDefaultVal,
+  awardsAndAchievements: awardsAndAchievementsDefaultVal,
   skills: skillDefaultVal,
   academicProjects: academicProjectsDefaultVals,
   address: addressDefaultVals,
@@ -78,7 +78,7 @@ export {
   workExperienceDefaultVals,
   academicProjectsDefaultVals,
   educationDefaultVals,
-  awardsAndAcheivmentsDefaultVal,
+  awardsAndAchievementsDefaultVal,
   skillDefaultVal,
   initialResumeData,
   defaultVals,

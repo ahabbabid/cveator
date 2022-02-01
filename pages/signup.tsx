@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import { Formik, Field, FieldProps } from 'formik'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
+import { faCircleNotch, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
 import config from '../config.json'
 import classNames from 'classnames'
@@ -205,6 +205,16 @@ const SignUpPage: NextPage<{
                   <a className="underline">Click here</a>
                 </Link>{' '}
                 to login
+              </div>
+              <div className="mt-5 text-center text-sm text-sky-400">
+                Made with <FontAwesomeIcon icon={faHeart} /> by&nbsp;
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/ahabb-abid/"
+                  className="underline"
+                >
+                  Muhammad Ahabb Abid
+                </a>
               </div>
             </form>
           )}
