@@ -311,8 +311,8 @@ const Home: NextPage<{
                           {values.education.giki.institute}
                         </p>
 
-                        <p className="text-sm">
-                          &emsp;Bachelors of Science in{' '}
+                        <p className="ml-5 text-sm">
+                          Bachelors of Science in{' '}
                           <ToggleableInput
                             classes={{
                               input: 'text-sm',
@@ -338,8 +338,8 @@ const Home: NextPage<{
                           />
                         </p>
 
-                        <p className="text-sm ">
-                          &emsp;CGPA:{' '}
+                        <p className="ml-5 text-sm">
+                          CGPA:{' '}
                           <ToggleableInput
                             classes={{
                               span: 'text-sm cursor-edit',

@@ -45,7 +45,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
           <div className="font-semibold">Objective</div>
         </div>
         <div className="col-span-10  col-start-3 row-span-1 row-start-1 mt-2">
-          <p className="text-sm">{resumeData.objective}</p>
+          <p className="whitespace-pre-wrap text-sm">{resumeData.objective}</p>
         </div>
         <div className="col-span-2 col-start-1 row-span-1 border-r-2 border-solid pr-2">
           <div className="flex justify-end">
@@ -59,13 +59,12 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
                 {resumeData.education.giki.institute}
               </p>
 
-              <p className="text-sm">
-                &emsp;Bachelors of Science in{' '}
-                {resumeData.education.giki.discipline}
+              <p className="ml-5 text-sm">
+                Bachelors of Science in {resumeData.education.giki.discipline}
               </p>
 
-              <p className="text-sm ">
-                &emsp;CGPA: {resumeData.education.giki.cgpa}/4.00
+              <p className="ml-5 text-sm">
+                CGPA: {resumeData.education.giki.cgpa}/4.00
               </p>
             </div>
             <div className="text-right">
@@ -84,10 +83,10 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
               <div>
                 <p className="text-base font-semibold">{obj.institute}</p>
 
-                <p className="text-sm">&emsp;{obj.degree}</p>
+                <p className="ml-5 text-sm">{obj.degree}</p>
 
-                <p className="text-sm ">
-                  &emsp;{obj.metric}: {obj.metricValue}
+                <p className="ml-5 text-sm">
+                  {obj.metric}: {obj.metricValue}
                 </p>
               </div>
               <div className="text-right">
@@ -112,7 +111,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
               <div>
                 <p className="text-base font-semibold">{obj.company}</p>
 
-                <p className=" text-sm">&emsp;{obj.desc}</p>
+                <p className=" ml-5 whitespace-pre-wrap text-sm">{obj.desc}</p>
               </div>
               <div>
                 <div className="text-right">
@@ -152,7 +151,9 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
               <div>
                 <p className="text-base font-semibold">{resumeData.fyp.name}</p>
 
-                <p className=" text-sm">&emsp;{resumeData.fyp.desc}</p>
+                <p className="ml-5 whitespace-pre-wrap text-sm">
+                  {resumeData.fyp.desc}
+                </p>
               </div>
             </div>
           </>
@@ -184,7 +185,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             <div>
               <p className="text-base font-semibold">{obj.name}</p>
 
-              <p className=" text-sm">&emsp;{obj.desc}</p>
+              <p className=" ml-5 text-sm">{obj.desc}</p>
             </div>
           ))}
         </div>
