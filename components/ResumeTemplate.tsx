@@ -185,7 +185,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             <div>
               <p className="text-base font-semibold">{obj.name}</p>
 
-              <p className=" ml-5 text-sm">{obj.desc}</p>
+              <p className=" ml-5 whitespace-pre-wrap text-sm">{obj.desc}</p>
             </div>
           ))}
         </div>
