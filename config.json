@@ -6,14 +6,35 @@
     "faculties": [
         "CSE",
         "CVE",
-        "FME",
         "EEE",
-        "EEP"
+        "EEP",
+        "ES",
+        "ME",
+        "MGS",
+        "CME",
+        "MSE"
 
     ],
     "disciplines": [
         "Computer Science",
-        "Computer Engineering"
+        "Computer Engineering",
+        "Electrical Engineering",
+        "Electrical Engineering(Power)",
+        "Electrical Engineering(Electronics)",
+        "Engineering Sciences",
+        "Materials Science and Engineering",
+        "Manufacturing Engineering",
+        "Mechanical Engineering",
+        "Software Engineering",
+        "Chemical Engineering",
+        "Management Sciences(Supply Chain Management)",
+        "Management Sciences(Entrepreneurship)",
+        "Management Sciences(Marketin & Entrepreneurship)",
+        "Management Sciences(Accounting & Finance)",
+        "Management Sciences(Project Management)",
+        "Civil Engineering"
+        
+
     ]
   
 }
