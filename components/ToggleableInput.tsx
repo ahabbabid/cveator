@@ -38,13 +38,13 @@ const ToggleableInput = (props: ToggleAbleInputProps) => {
   const toggle = () => {
     setIsInputVisible((curr) => !curr)
   }
-  useEffect(() => {
-    if (ref && ref.current) ref.current.focus()
-    ref.current?.setSelectionRange(
-      ref.current.value.length,
-      ref.current.value.length
-    )
-  })
+  // useEffect(() => {
+  //   if (ref && ref.current) ref.current.focus()
+  //   ref.current?.setSelectionRange(
+  //     ref.current.value.length,
+  //     ref.current.value.length
+  //   )
+  // }, [])
 
   return (
     <>
@@ -52,7 +52,10 @@ const ToggleableInput = (props: ToggleAbleInputProps) => {
         customComponent ? (
           customComponent(toggle)
         ) : (
-          <span onClick={toggle} className={classes?.span}>
+          <span
+            onClick={toggle}
+            className={classNames(classes?.span, 'whitespace-pre-wrap')}
+          >
             {value}
           </span>
         )

@@ -563,7 +563,7 @@ const Home: NextPage<{
                                     <ToggleableInput
                                       classes={{
                                         input: 'text-sm  w-full',
-                                        span: 'text-sm  cursor-edit',
+                                        span: 'text-sm  cursor-edit whitespace-pre-wrap',
                                       }}
                                       name={`work[${index}].desc`}
                                       value={values.work[index].desc}
