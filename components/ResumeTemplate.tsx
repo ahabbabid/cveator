@@ -108,10 +108,10 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
         <div className="col-span-10  col-start-3 row-span-1 row-start-3">
           {resumeData.work.map((obj) => (
             <div className="mb-5 flex justify-between ">
-              <div>
+              <div className="w-3/4">
                 <p className="text-base font-semibold">{obj.company}</p>
 
-                <p className=" ml-5 whitespace-pre-wrap text-sm">{obj.desc}</p>
+                <p className="ml-5  whitespace-pre-wrap text-sm">{obj.desc}</p>
               </div>
               <div>
                 <div className="text-right">
