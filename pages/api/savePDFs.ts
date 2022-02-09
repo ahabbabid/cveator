@@ -11,6 +11,14 @@ const savePDFs = async (req: NextApiRequest, res: NextApiResponse) => {
       batch: 28,
     },
   })
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '—disable-setuid-sandbox',
+      '--font-render-hinting=none',
+    ],
+  })
   for (const student of studentsB28) {
     const user = await prisma.users.findUnique({
       where: {
@@ -29,14 +37,7 @@ const savePDFs = async (req: NextApiRequest, res: NextApiResponse) => {
       const resumeData: FormValues = JSON.parse(student.resume_data.toString())
 
       const html = renderToStaticMarkup(getHTMlFromResumeData(resumeData))
-      const browser = await puppeteer.launch({
-        headless: true,
-        args: [
-          '--no-sandbox',
-          '—disable-setuid-sandbox',
-          '--font-render-hinting=none',
-        ],
-      })
+
       const page = await browser.newPage()
       await page.setContent(html)
       await page.addStyleTag({ path: 'tailwind.css' })
@@ -47,10 +48,10 @@ const savePDFs = async (req: NextApiRequest, res: NextApiResponse) => {
         scale: 0.75,
         printBackground: true,
       })
-
-      await browser.close()
     }
   }
+
+  await browser.close()
   res.status(200).send({ ok: true })
 }
 export default savePDFs
