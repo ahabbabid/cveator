@@ -196,41 +196,42 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             </div>
           ))}
         </div>
-        {resumeData.awardsAndAchievements.length > 0 && (
-          <>
-            <div
-              className={classNames(
-                'col-span-2 row-span-1  border-r-2 border-solid pr-2',
-                {
-                  'row-start-5': !resumeData.fyp,
-                  'row-start-6': resumeData.fyp,
-                }
-              )}
-            >
-              <div className="flex justify-end">
-                <div className="w-3/4 text-right font-semibold">
-                  {' '}
-                  Awards & Acheivments
+        {resumeData.awardsAndAchievements &&
+          resumeData.awardsAndAchievements.length > 0 && (
+            <>
+              <div
+                className={classNames(
+                  'col-span-2 row-span-1  border-r-2 border-solid pr-2',
+                  {
+                    'row-start-5': !resumeData.fyp,
+                    'row-start-6': resumeData.fyp,
+                  }
+                )}
+              >
+                <div className="flex justify-end">
+                  <div className="w-3/4 text-right font-semibold">
+                    {' '}
+                    Awards & Achievements
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              className={classNames(
-                'col-span-10 row-span-1 border-solid pr-2',
-                {
-                  'row-start-5': !resumeData.fyp,
-                  'row-start-6': resumeData.fyp,
-                }
-              )}
-            >
-              {resumeData.awardsAndAchievements.map((award) => (
-                <div>
-                  <p className="text-semibold text-base"> - {award}</p>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
+              <div
+                className={classNames(
+                  'col-span-10 row-span-1 border-solid pr-2',
+                  {
+                    'row-start-5': !resumeData.fyp,
+                    'row-start-6': resumeData.fyp,
+                  }
+                )}
+              >
+                {resumeData.awardsAndAchievements.map((award) => (
+                  <div>
+                    <p className="text-semibold text-base"> - {award}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
 
         <div
           className={classNames(
