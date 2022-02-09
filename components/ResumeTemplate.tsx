@@ -97,7 +97,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             </div>
           ))}
         </div>
-        {resumeData.work.length > 0 && (
+        {resumeData.work && resumeData.work.length > 0 && (
           <>
             <div className=" col-span-2 col-start-1 row-span-1 border-r-2 border-solid pr-2">
               <div className="flex justify-end">
