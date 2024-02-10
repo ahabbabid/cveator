@@ -26,6 +26,7 @@ import classNames from 'classnames'
 import editIcon from '../../public/edit-solid.svg'
 
 export const getServerSideProps = withSessionSsr(
+  //@ts-ignore
   async function getServerSideProps({ req }) {
     const { disciplines, currentBatches } = config
     console.log(req.session.user)
@@ -98,7 +99,7 @@ const Home: NextPage<{
         <div className="text-sm">
           <ul className="list-disc">
             <li>
-              Fields showing <Image src={editIcon}></Image> upon hovering can be
+              Fields showing <Image alt='editIcon' src={editIcon}></Image> upon hovering can be
               edited by clicking on them and changing the values
             </li>
             <li>
