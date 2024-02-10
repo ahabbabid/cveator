@@ -7,6 +7,7 @@ export default withSessionRoute(signupRoute)
 
 async function signupRoute(req: NextApiRequest, res: NextApiResponse) {
   const reqBody = JSON.parse(req.body)
+  console.log(reqBody)
   let user = await prisma.users.findFirst({
     where: { username: reqBody.regNo.toString() },
   })
