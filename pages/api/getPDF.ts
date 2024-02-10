@@ -17,12 +17,6 @@ async function getPDF(req: NextApiRequest, res: NextApiResponse) {
         user_id: user.id,
       },
     })
-    if (!fs.existsSync(`./storage/${student?.batch}/${student?.faculty}`)) {
-      console.log('true')
-      fs.mkdirSync(`./storage/${student?.batch}/${student?.faculty}`, {
-        recursive: true,
-      })
-    }
     const { resumeData } = JSON.parse(req.body)
 
     const html = renderToStaticMarkup(
@@ -42,7 +36,6 @@ async function getPDF(req: NextApiRequest, res: NextApiResponse) {
     await page.addStyleTag({ path: 'tailwind.css' })
 
     const pdf = await page.pdf({
-      path: `./storage/${student?.batch}/${student?.faculty}/${user.username}.pdf`,
       format: 'a4',
       scale: 0.75,
       printBackground: true,

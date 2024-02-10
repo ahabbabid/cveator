@@ -8,12 +8,10 @@ datasource db {
 }
 
 model students {
-  id          Int    @id @default(autoincrement())
+  id          Int   @id @default(autoincrement())
   user_id     Int
-  faculty     String @db.VarChar
-  batch       Int    @db.Integer
   resume_data Json?
-  user        users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "foreignKey")
+  user        users @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "foreignKey")
 
   @@index([user_id], map: "fki_foreignKey")
 }

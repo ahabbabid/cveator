@@ -47,7 +47,7 @@ export const getServerSideProps = withSessionSsr(
 
       return {
         props: {
-          user: { ...req.session.user, batch: resumeData?.batch },
+          user: { ...req.session.user},
           resumeData: resumeData?.resume_data,
           disciplines,
           currentBatches,
