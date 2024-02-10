@@ -7,6 +7,7 @@ export default withSessionRoute(loginRoute)
 async function loginRoute(req: NextApiRequest, res: NextApiResponse) {
   // get user from database then:
   const reqBody = JSON.parse(req.body)
+ console.log(process.env.TURSO_DATABASE_URL) 
   const user = await prisma.users.findFirst({
     where: {
       username: reqBody.regNo,
