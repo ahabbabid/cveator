@@ -1,27 +1,26 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+ 
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model students {
   id          Int    @id @default(autoincrement())
   user_id     Int
-  faculty     String @db.VarChar
-  batch       Int    @db.Integer
-  resume_data Json?
-  user        users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "foreignKey")
-
+  resume_data String?
+  user        users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   @@index([user_id], map: "fki_foreignKey")
 }
 
 model users {
-  username String     @unique @db.VarChar
-  password String     @db.VarChar
-  role     String     @db.VarChar
+  username String     @unique 
+  password String    
+  role     String   
   id       Int        @id @default(autoincrement())
   students students[]
 }

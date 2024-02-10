@@ -37,18 +37,10 @@ interface FormValues {
   }
   objective: string
   education: {
-    giki: {
-      institute: string
-      discipline: string
-      cgpa: string
-      location: string
-      startDate: string
-      endDate: string
-    }
+    
     other: Array<EducationVals>
   }
   work: Array<WorkExperienceVals>
-  fyp?: AcademicProjectsVals
   academicProjects: Array<AcademicProjectsVals>
   awardsAndAchievements: Array<string>
   skills: Array<string>

@@ -1,16 +1,12 @@
 import { withSessionRoute } from '../../lib/withSession'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { initialResumeData } from '../../lib/constants/resume'
-import { currentBatches } from '../../config.json'
 import prisma from '../../prisma/prisma'
 
 export default withSessionRoute(signupRoute)
 
 async function signupRoute(req: NextApiRequest, res: NextApiResponse) {
   const reqBody = JSON.parse(req.body)
-  const batches: {
-    [batch: number]: string
-  } = currentBatches
   let user = await prisma.users.findFirst({
     where: { username: reqBody.regNo.toString() },
   })
@@ -26,16 +22,16 @@ async function signupRoute(req: NextApiRequest, res: NextApiResponse) {
       role: 'student',
     },
   })
+  console.log(user)
   await prisma.students.create({
     data: {
       user_id: user.id,
-      faculty: reqBody.faculty,
-      batch: parseInt(reqBody.batch),
       resume_data: JSON.stringify(
-        initialResumeData(batches[reqBody.batch] === 'Final Year')
+        initialResumeData()
       ),
     },
   })
+ 
   req.session.user = user
 
   await req.session.save()

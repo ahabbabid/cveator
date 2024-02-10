@@ -77,8 +77,8 @@ const SignUpPage: NextPage<{
                 CVeator(Beta)
               </div>
               <div className="mb-5 mt-5 flex">
-                <div className="mr-3 flex w-1/4 text-right font-semibold text-sky-900">
-                  <label>Registration Number </label>
+                <div className="mr-3 w-1/4 text-right font-semibold text-sky-900">
+                  <label>Username</label>
                 </div>
                 <Field name="regNo">
                   {({ field, meta }: FieldProps) => (
@@ -86,7 +86,6 @@ const SignUpPage: NextPage<{
                       <input
                         {...field}
                         placeholder="Registration Number "
-                        type="number"
                         className={classNames(
                           'w-full rounded-md border-2 border-sky-800 p-2 focus:outline-none',
                           {
@@ -155,36 +154,6 @@ const SignUpPage: NextPage<{
                       )}
                     </div>
                   )}
-                </Field>
-              </div>
-              <div className="mb-5 flex justify-between">
-                <div className="mr-3 w-1/4 text-right font-semibold text-sky-900">
-                  <label>Batch</label>
-                </div>
-
-                <Field
-                  as="select"
-                  name="batch"
-                  className="w-3/4 rounded-md border-2 border-sky-800 p-2 outline-none focus:outline-none"
-                >
-                  {Object.entries(currentBatches).map((obj) => (
-                    <option value={obj[0]}>{obj[1]}</option>
-                  ))}
-                </Field>
-              </div>
-              <div className="mb-5 flex">
-                <div className="mr-3 w-1/4 text-right font-semibold text-sky-900">
-                  <label>Faculty</label>
-                </div>
-                <Field
-                  as="select"
-                  placeholder="Faculty"
-                  name="faculty"
-                  className="w-3/4 rounded-md border-2 border-sky-800 p-2 outline-none focus:outline-none"
-                >
-                  {faculties.map((faculty) => (
-                    <option value={faculty}>{faculty}</option>
-                  ))}
                 </Field>
               </div>
               <div className="flex items-center justify-center">

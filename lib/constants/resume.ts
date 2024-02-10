@@ -39,25 +39,14 @@ const personalInfoDefaultVal = {
   phoneNumber: '+92 (300) 000000',
 }
 
-const initialResumeData = (finalYear: boolean): FormValues => ({
+const initialResumeData = (): FormValues => ({
   personalInfo: personalInfoDefaultVal,
   address: addressDefaultVals,
   objective: objectiveDefaultVal,
   education: {
-    giki: {
-      institute:
-        'Ghulam Ishaq Khan Institute of Engineering Sciences and Technology (GIKI)',
-      discipline: `Computer Science`,
-      cgpa: '3:00',
-      location: 'Topi, PK',
-      startDate: '2018',
-      endDate: '2020',
-    },
     other: [educationDefaultVals],
   },
-
   work: [workExperienceDefaultVals],
-  fyp: finalYear ? FypDefaultVals : undefined,
   academicProjects: [academicProjectsDefaultVals],
   awardsAndAchievements: [awardsAndAchievementsDefaultVal],
   skills: [skillDefaultVal],

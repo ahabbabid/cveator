@@ -17,12 +17,12 @@ async function getPDF(req: NextApiRequest, res: NextApiResponse) {
         user_id: user.id,
       },
     })
-    if (!fs.existsSync(`./storage/${student?.batch}/${student?.faculty}`)) {
-      console.log('true')
-      fs.mkdirSync(`./storage/${student?.batch}/${student?.faculty}`, {
-        recursive: true,
-      })
-    }
+    // if (!fs.existsSync(`./storage/${student?.batch}/${student?.faculty}`)) {
+    //   console.log('true')
+    //   fs.mkdirSync(`./storage/${student?.batch}/${student?.faculty}`, {
+    //     recursive: true,
+    //   })
+    // }
     const { resumeData } = JSON.parse(req.body)
 
     const html = renderToStaticMarkup(
@@ -37,17 +37,18 @@ async function getPDF(req: NextApiRequest, res: NextApiResponse) {
         '--font-render-hinting=none',
       ],
     })
+    
     const page = await browser.newPage()
     await page.setContent(html)
     await page.addStyleTag({ path: 'tailwind.css' })
 
     const pdf = await page.pdf({
-      path: `./storage/${student?.batch}/${student?.faculty}/${user.username}.pdf`,
-      format: 'a4',
-      scale: 0.75,
       printBackground: true,
+      scale: 0.75,
+      margin: {right: '0.5in', left: '0.5in', top: '0.5in', bottom: '0.5in'}
     })
 
+    
     await browser.close()
     res.setHeader('Content-Type', 'application/pdf').send(pdf)
   }

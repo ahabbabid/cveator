@@ -26,7 +26,6 @@ import classNames from 'classnames'
 import editIcon from '../../public/edit-solid.svg'
 
 export const getServerSideProps = withSessionSsr(
-  //@ts-ignore
   async function getServerSideProps({ req }) {
     const { disciplines, currentBatches } = config
     console.log(req.session.user)
@@ -47,7 +46,7 @@ export const getServerSideProps = withSessionSsr(
 
       return {
         props: {
-          user: { ...req.session.user, batch: resumeData?.batch },
+          user: { ...req.session.user},
           resumeData: resumeData?.resume_data,
           disciplines,
           currentBatches,
@@ -305,74 +304,6 @@ const Home: NextPage<{
                     </div>
                   </div>
                   <div className="col-span-10  col-start-3 row-span-1 row-start-2">
-                    <div className="mb-5 flex justify-between last:mb-0">
-                      <div>
-                        <p className="text-base font-semibold">
-                          {values.education.giki.institute}
-                        </p>
-
-                        <p className="ml-5 text-sm">
-                          Bachelors of Science in{' '}
-                          <ToggleableInput
-                            classes={{
-                              input: 'text-sm',
-                              span: 'text-sm  cursor-edit',
-                            }}
-                            name={`education.giki.discipline`}
-                            value={values.education.giki.discipline}
-                            customField={(field, onBlur) => (
-                              <select
-                                {...field}
-                                onBlur={onBlur}
-                                defaultValue={'Computer Science'}
-                                autoFocus
-                                className="cursor-edit border-2 border-dotted border-gray-700 text-sm outline-none"
-                              >
-                                {disciplines.map((discipline) => (
-                                  <option value={discipline}>
-                                    {discipline}
-                                  </option>
-                                ))}
-                              </select>
-                            )}
-                          />
-                        </p>
-
-                        <p className="ml-5 text-sm">
-                          CGPA:{' '}
-                          <ToggleableInput
-                            classes={{
-                              span: 'text-sm cursor-edit',
-                              input: 'text-sm',
-                            }}
-                            name="education.giki.cgpa"
-                            value={values.education.giki.cgpa}
-                            emptyFieldDefaultVal="3.00"
-                          />
-                          /4.00
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm">
-                          {values.education.giki.location}
-                        </p>
-                        <ToggleableInput
-                          name="education.giki.startDate"
-                          value={values.education.giki.startDate}
-                          emptyFieldDefaultVal="2022"
-                        />
-                        -{' '}
-                        <ToggleableInput
-                          classes={{
-                            span: 'text-sm cursor-edit',
-                            input: 'text-sm',
-                          }}
-                          name="education.giki.endDate"
-                          value={values.education.giki.endDate}
-                          emptyFieldDefaultVal="2022"
-                        />
-                      </div>
-                    </div>
                     <FieldArray name="education.other">
                       {(arrayHelpers) => (
                         <div>
@@ -630,75 +561,6 @@ const Home: NextPage<{
                       )}
                     </FieldArray>
                   </div>
-                  {currentBatches[user.batch] === 'Final Year' && (
-                    <>
-                      <div
-                        className={classNames(
-                          'col-span-2 row-span-1 row-start-4 border-r-2 border-solid pr-2'
-                        )}
-                      >
-                        <div className="text-right font-semibold">
-                          Final Year Project
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          'col-span-10 col-start-3 row-span-1 border-solid pr-2',
-                          {
-                            'row-start-3':
-                              currentBatches[user.batch] !== 'Final Year',
-                            'row-start-4':
-                              currentBatches[user.batch] === 'Final Year',
-                          }
-                        )}
-                      >
-                        <div className="w-3/4">
-                          <div>
-                            <ToggleableInput
-                              classes={{
-                                input: 'mr-2 text-base font-semibold w-full',
-
-                                span: 'mr-2 text-base font-semibold cursor-edit',
-                              }}
-                              name={`fyp.name`}
-                              value={
-                                values.fyp?.name
-                                  ? values.fyp.name
-                                  : defaultVals.fyp.name
-                              }
-                              emptyFieldDefaultVal={defaultVals.fyp.name}
-                            />
-                          </div>
-                          <div className="pl-5">
-                            <ToggleableInput
-                              classes={{
-                                input: 'text-sm  w-full',
-                                span: 'text-sm  cursor-edit',
-                              }}
-                              name={`fyp.desc`}
-                              value={
-                                values.fyp?.desc
-                                  ? values.fyp.desc
-                                  : defaultVals.fyp.desc
-                              }
-                              customField={(field, onBlur, ref) => (
-                                <textarea
-                                  {...field}
-                                  onBlur={onBlur}
-                                  className="w-full border-2 border-dotted border-gray-700 text-sm outline-none"
-                                  ref={ref}
-                                >
-                                  {values.fyp?.desc}
-                                </textarea>
-                              )}
-                              emptyFieldDefaultVal={defaultVals.fyp.desc}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  )}
-
                   <div
                     className={classNames(
                       'col-span-2 row-span-1  border-r-2 border-solid pr-2',
@@ -723,7 +585,7 @@ const Home: NextPage<{
                       />
                       <div className="w-3/4 text-right font-semibold">
                         {' '}
-                        Academic Projects
+                        Projects
                       </div>
                     </div>
                   </div>

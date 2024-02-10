@@ -53,31 +53,6 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
           </div>
         </div>
         <div className="col-span-10  col-start-3 row-span-1 row-start-2">
-          <div className="mb-5 flex justify-between last:mb-0">
-            <div>
-              <p className="text-base font-semibold">
-                {resumeData.education.giki.institute}
-              </p>
-
-              <p className="ml-5 text-sm">
-                Bachelors of Science in {resumeData.education.giki.discipline}
-              </p>
-
-              <p className="ml-5 text-sm">
-                CGPA: {resumeData.education.giki.cgpa}/4.00
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="text-sm">{resumeData.education.giki.location}</p>
-              <span className="text-sm">
-                {resumeData.education.giki.startDate}
-              </span>{' '}
-              -{' '}
-              <span className="text-sm">
-                {resumeData.education.giki.endDate}
-              </span>
-            </div>
-          </div>
           {resumeData.education.other.map((obj) => (
             <div className="mb-5 flex justify-between last:mb-0">
               <div>
@@ -131,51 +106,12 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             </div>
           </>
         )}
-
-        {resumeData.fyp && (
-          <>
-            <div
-              className={classNames(
-                'col-span-2 row-span-1 row-start-4 border-r-2 border-solid pr-2'
-              )}
-            >
-              <div className="flex justify-end">
-                <div className="w-3/4 text-right font-semibold">
-                  {' '}
-                  Final Year Project
-                </div>
-              </div>
-            </div>
-            <div
-              className={classNames(
-                'col-span-10 col-start-3 row-span-1 border-solid pr-2',
-                {
-                  'row-start-3': !resumeData.fyp,
-                  'row-start-4': resumeData.fyp,
-                }
-              )}
-            >
-              <div>
-                <p className="text-base font-semibold">{resumeData.fyp.name}</p>
-
-                <p className="ml-5 whitespace-pre-wrap text-sm">
-                  {resumeData.fyp.desc}
-                </p>
-              </div>
-            </div>
-          </>
-        )}
-
         <div
           className={classNames(
-            'col-span-2 row-span-1  border-r-2 border-solid pr-2',
-            {
-              'row-start-4': !resumeData.fyp,
-              'row-start-5': resumeData.fyp,
-            }
+            'col-span-2 row-span-1  row-start-4 border-r-2 border-solid pr-2'
           )}
         >
-          <div className="flex justify-end">
+          <div className="page-break flex justify-end">
             <div className="w-3/4 text-right font-semibold">
               {' '}
               Academic Projects
@@ -183,10 +119,10 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
           </div>
         </div>
         <div
-          className={classNames('col-span-10 row-span-1   border-solid pr-2', {
-            'row-start-4': !resumeData.fyp,
-            'row-start-5': resumeData.fyp,
-          })}
+          className={classNames(
+            'col-span-10 row-span-1   row-start-4 border-solid pr-2 ',
+            {}
+          )}
         >
           {resumeData.academicProjects.map((obj) => (
             <div>
@@ -201,11 +137,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
             <>
               <div
                 className={classNames(
-                  'col-span-2 row-span-1  border-r-2 border-solid pr-2',
-                  {
-                    'row-start-5': !resumeData.fyp,
-                    'row-start-6': resumeData.fyp,
-                  }
+                  'col-span-2 row-span-1  row-start-5 border-r-2 border-solid pr-2'
                 )}
               >
                 <div className="flex justify-end">
@@ -217,11 +149,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
               </div>
               <div
                 className={classNames(
-                  'col-span-10 row-span-1 border-solid pr-2',
-                  {
-                    'row-start-5': !resumeData.fyp,
-                    'row-start-6': resumeData.fyp,
-                  }
+                  'col-span-10 row-span-1 row-start-5 border-solid pr-2'
                 )}
               >
                 {resumeData.awardsAndAchievements.map((award) => (
@@ -235,11 +163,7 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
 
         <div
           className={classNames(
-            'col-span-2 row-span-1  border-r-2 border-solid pr-2',
-            {
-              'row-start-6': !resumeData.fyp,
-              'row-start-7': resumeData.fyp,
-            }
+            'col-span-2 row-span-1  row-start-6 border-r-2 border-solid pr-2'
           )}
         >
           <div className="flex justify-end">
@@ -247,10 +171,9 @@ const getHTMlFromResumeData = (resumeData: FormValues): ReactElement => {
           </div>
         </div>
         <div
-          className={classNames('col-span-10  col-start-3 row-span-1', {
-            'row-start-6': !resumeData.fyp,
-            'row-start-7': resumeData.fyp,
-          })}
+          className={classNames(
+            'col-span-10  col-start-3 row-span-1 row-start-6'
+          )}
         >
           {resumeData.skills.map((skill) => (
             <div>
