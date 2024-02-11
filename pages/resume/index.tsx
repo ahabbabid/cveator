@@ -167,6 +167,7 @@ const Home: NextPage<{
                         }),
                       })
                       const blob = await res.blob()
+                      saveAs(blob, `${user.username}.pdf`)
                       setDownloadingPDF(false)
                     } catch (e) {
                       console.log(e)
