@@ -32,5 +32,6 @@ async function loginRoute(req: NextApiRequest, res: NextApiResponse) {
     }
   } catch (e) {
     console.log(e)
+    res.send({ error: e })
   }
 }
