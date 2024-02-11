@@ -1,3 +1,4 @@
+import { Head } from 'next/head';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { withSessionRoute } from '../../lib/withSession'
@@ -5,7 +6,7 @@ import getHTMlFromResumeData from '../../components/ResumeTemplate'
 import { renderToStaticMarkup } from 'react-dom/server'
 import puppeteer from 'puppeteer'
 import prisma from '../../prisma/prisma'
-import fs from 'fs'
+import chromium from "chrome-aws-lambda";
 
 export default withSessionRoute(getPDF)
 
@@ -28,15 +29,19 @@ async function getPDF(req: NextApiRequest, res: NextApiResponse) {
     const html = renderToStaticMarkup(
       getHTMlFromResumeData(JSON.parse(resumeData))
     )
-
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: [
-        '--no-sandbox',
-        '—disable-setuid-sandbox',
-        '--font-render-hinting=none',
-      ],
+    const browser = await chromium.puppeteer.launch({
+      args: chromium.args,
+      headless: chromium.headless
     })
+
+    // const browser = await puppeteer.launch({
+    //   headless: true,
+    //   args: [
+    //     '--no-sandbox',
+    //     '—disable-setuid-sandbox',
+    //     '--font-render-hinting=none',
+    //   ],
+    // })
     
     const page = await browser.newPage()
     await page.setContent(html)

@@ -12,6 +12,7 @@
     "@libsql/client": "^0.4.3",
     "@prisma/adapter-libsql": "^5.9.1",
     "@prisma/client": "^5.9.1",
+    "chrome-aws-lambda": "^10.1.0",
     "classnames": "^2.3.1",
     "file-saver": "^2.0.5",
     "formik": "^2.2.9",
