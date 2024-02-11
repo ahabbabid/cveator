@@ -3,7 +3,6 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { withSessionRoute } from '../../lib/withSession'
 import getHTMlFromResumeData from '../../components/ResumeTemplate'
 import { renderToStaticMarkup } from 'react-dom/server'
-import puppeteer from 'puppeteer'
 import prisma from '../../prisma/prisma'
 import chromium from "chrome-aws-lambda";
 
